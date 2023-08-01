@@ -41,7 +41,7 @@ end
 
 ScriptEditorService.TextDocumentDidChange:Connect(function(doc, changes)
 	local docPlus = ScriptDocPlus(doc, changes)
-	if not docPlus:EnterPressed() then return end
+	if not docPlus:WasEnterPressed() then return end
 
 	local prevLine = docPlus:GetLine(-1, true)
 	local prevLineCommentContent = string.match(prevLine, "%-%-(.+)")
